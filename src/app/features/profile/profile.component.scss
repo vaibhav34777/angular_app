@@ -1,0 +1,55 @@
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.profile-header {
+  margin-bottom: 24px;
+}
+
+mat-card {
+  padding: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.avatar-section {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e0e0e0;
+  }
+  
+  .change-avatar-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+button[type="submit"] {
+  align-self: flex-start;
+  margin-top: 16px;
+}

@@ -1,0 +1,109 @@
+<div class="container checkout-container">
+  <h1>Checkout</h1>
+
+  <mat-card>
+    <mat-card-title>Shipping Information</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="fullName" required>
+          <mat-error *ngIf="checkoutForm.get('fullName')?.hasError('required')">Full Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" required>
+          <mat-error *ngIf="checkoutForm.get('email')?.hasError('required')">Email is required</mat-error>
+          <mat-error *ngIf="checkoutForm.get('email')?.hasError('email')">Invalid email format</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address" required>
+          <mat-error *ngIf="checkoutForm.get('address')?.hasError('required')">Address is required</mat-error>
+        </mat-form-field>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" required>
+            <mat-error *ngIf="checkoutForm.get('city')?.hasError('required')">City is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>State</mat-label>
+            <input matInput formControlName="state" required>
+            <mat-error *ngIf="checkoutForm.get('state')?.hasError('required')">State is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Zip Code</mat-label>
+          <input matInput formControlName="zipCode" required>
+          <mat-error *ngIf="checkoutForm.get('zipCode')?.hasError('required')">Zip Code is required</mat-error>
+        </mat-form-field>
+
+        <mat-divider></mat-divider>
+
+        <mat-card-title>Payment Information</mat-card-title>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Name on Card</mat-label>
+          <input matInput formControlName="cardName" required>
+          <mat-error *ngIf="checkoutForm.get('cardName')?.hasError('required')">Name on Card is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Card Number</mat-label>
+          <input matInput formControlName="cardNumber" required maxlength="16">
+          <mat-error *ngIf="checkoutForm.get('cardNumber')?.hasError('required')">Card Number is required</mat-error>
+          <mat-error *ngIf="checkoutForm.get('cardNumber')?.hasError('pattern')">Enter a valid 16-digit card number</mat-error>
+        </mat-form-field>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="third-width">
+            <mat-label>Exp. Month (MM)</mat-label>
+            <input matInput formControlName="expMonth" required maxlength="2">
+            <mat-error *ngIf="checkoutForm.get('expMonth')?.hasError('required')">Month is required</mat-error>
+            <mat-error *ngIf="checkoutForm.get('expMonth')?.hasError('pattern')">Invalid month (MM)</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="third-width">
+            <mat-label>Exp. Year (YYYY)</mat-label>
+            <input matInput formControlName="expYear" required maxlength="4">
+            <mat-error *ngIf="checkoutForm.get('expYear')?.hasError('required')">Year is required</mat-error>
+            <mat-error *ngIf="checkoutForm.get('expYear')?.hasError('pattern')">Invalid year (YYYY)</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="third-width">
+            <mat-label>CVV</mat-label>
+            <input matInput formControlName="cvv" required maxlength="4">
+            <mat-error *ngIf="checkoutForm.get('cvv')?.hasError('required')">CVV is required</mat-error>
+            <mat-error *ngIf="checkoutForm.get('cvv')?.hasError('pattern')">Invalid CVV</mat-error>
+          </mat-form-field>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <mat-card-title>Order Summary</mat-card-title>
+        <div class="summary-row">
+          <span>Cart Total:</span>
+          <span>{{ cartTotal | currency }}</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping:</span>
+          <span>Free</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total Due:</span>
+          <span>{{ cartTotal | currency }}</span>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="checkoutForm.invalid" class="place-order-button">
+          Place Order
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

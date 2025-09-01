@@ -1,0 +1,66 @@
+.checkout-container {
+  max-width: 700px;
+  margin: 24px auto;
+  padding: 24px;
+}
+
+h1 {
+  margin-bottom: 24px;
+  text-align: center;
+  color: #333;
+}
+
+mat-card {
+  padding: 32px;
+}
+
+mat-card-title {
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 16px;
+}
+
+mat-card-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+
+  .half-width,
+  .third-width {
+    flex: 1;
+  }
+}
+
+mat-divider {
+  margin: 32px 0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 1rem;
+
+  &.total {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 16px;
+  }
+}
+
+.place-order-button {
+  margin-top: 32px;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1.1rem;
+}

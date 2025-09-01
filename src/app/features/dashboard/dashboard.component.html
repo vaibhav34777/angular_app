@@ -1,0 +1,24 @@
+<div class="dashboard-container">
+  <h1>Dashboard</h1>
+  <div class="dashboard-cards">
+    <mat-card *ngFor="let item of dashboardCards" class="dashboard-card">
+      <mat-card-header>
+        <div mat-card-avatar [ngStyle]="{'background-color': item.color}" class="card-icon-wrapper">
+          <mat-icon class="card-icon">{{ item.icon }}</mat-icon>
+        </div>
+        <mat-card-title>{{ item.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="card-value">{{ item.value }}</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- Add more dashboard content here, e.g., recent orders, charts etc. -->
+  <mat-card class="recent-orders-card">
+    <mat-card-title>Recent Orders</mat-card-title>
+    <mat-card-content>
+      <p>No recent orders to display.</p>
+      <!-- Placeholder for a list/table of recent orders -->
+    </mat-card-content>
+  </mat-card>
+</div>
